@@ -1,0 +1,76 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.example.virtue_test"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug{
+            buildConfigField "String", "BASE_URL", '"https://andruxnet-random-famous-quotes.p.rapidapi.com/"'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures{
+        viewBinding = true
+    }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.5.0'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    api deps.androidx.constraint
+    api deps.androidx.cardview
+    api deps.network.retrofit
+    api deps.network.gson
+    api deps.network.converter_gson
+    api deps.network.adapter_rx
+    api deps.network.adapter_rx2
+    api deps.jetbrains.coroutine
+    api deps.jetbrains.coroutine_kotlin
+    api deps.third.material
+    api deps.navigation.ui
+    api deps.navigation.fragment
+    api deps.navigation.fragment_ktx
+    api deps.hilt.main
+    kapt deps.hilt.compiler
+    api deps.room.runtime
+    api deps.lifecycle.viewmodel_ktx
+    kapt deps.room.compiler
+
+    //Dagger-Hilt
+}

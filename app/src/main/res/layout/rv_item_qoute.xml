@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cv"
+    android:layout_width="match_parent"
+    android:layout_marginVertical="@dimen/rv_item_padding"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black_1"
+        android:padding="@dimen/rv_item_padding">
+
+        <ImageView
+            android:id="@+id/iv_rvitem_qoute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rotation="180"
+            android:src="@drawable/ic_baseline_format_quote_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtv_rvitem_quote"
+            style="@style/TextAppearance.MdcTypographyStyles.Body2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:layout_marginEnd="24dp"
+            android:justificationMode="inter_word"
+            app:fontFamily="roboto"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_rvitem_qoute"
+            app:layout_constraintTop_toBottomOf="@id/iv_rvitem_qoute"
+            tools:layout_editor_absoluteX="12dp"
+            tools:text="@tools:sample/lorem[20]" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtv_rvitem_people"
+            style="@style/TextAppearance.MdcTypographyStyles.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/mtv_rvitem_quote"
+            app:layout_constraintTop_toBottomOf="@id/mtv_rvitem_quote"
+            tools:text="- Asad" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
